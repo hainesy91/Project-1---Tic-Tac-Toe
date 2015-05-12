@@ -1,21 +1,18 @@
 $(document).ready(function(){
 
-var player1 = 'X'
-var player2 = 'O'
+var lastMove ="O"
 
 
-$(".firstRow").on("click", function(){
-  
-}
- 
-});
+$(".gridBox").on("click", function(){
+  if(lastMove === "X") {
+    $(this).text("O");
+    lastMove = "O"
+  }
+   else{
+      $(this).text("X")
+      lastMove = "X"
+    }  
+})
 
-$(".secondRow").click(function(){
-  alert("You have clicked the second row");
-});
-
-$(".thirdRow").click(function(){
-  alert("You have clicked the third row");
-});
 
 })
