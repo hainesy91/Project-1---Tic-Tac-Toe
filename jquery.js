@@ -1,8 +1,13 @@
 $(document).ready(function(){
 
+var player1 = 'X'
+var player2 = 'O'
 
-$(".firstRow").click(function(){
-  alert("You have clicked the first row");
+
+$(".firstRow").on("click", function(){
+  
+}
+ 
 });
 
 $(".secondRow").click(function(){
