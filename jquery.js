@@ -1,7 +1,9 @@
 $(document).ready(function(){
 
 var lastMove ="O"
-var winningCombo = [{'id': 'one'}, {'id': 'two'}, {'id': 'three'}, {'id': 'four'}, {'id': 'five'}, {'id': 'six'}, {'id': 'seven'}, {'id': 'eight'}, {'id': 'nine'}]; 
+var winningCombo = ["one, two, three", "four five six", "seven eight nine", "one four seven", "two five nine", "three six nine", "three five eight", "one five nine"];
+var arrayLength = winningCombo.length;
+
 
 $(".gridBox").on("click", function(){
   if(lastMove === "X") {
@@ -14,9 +16,10 @@ $(".gridBox").on("click", function(){
     }  
 })
 
-var result = $.grep(winningCombo, function (e){
-  return e.id == id;
-});
+for (var i = 0; i < arrayLength; i++) {
+  $(click(winningCombo[i])
+}
+
 
 
 
