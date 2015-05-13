@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 var lastMove ="O"
-
+var winningCombo = [{'id': 'one'}, {'id': 'two'}, {'id': 'three'}, {'id': 'four'}, {'id': 'five'}, {'id': 'six'}, {'id': 'seven'}, {'id': 'eight'}, {'id': 'nine'}]; 
 
 $(".gridBox").on("click", function(){
   if(lastMove === "X") {
@@ -13,6 +13,12 @@ $(".gridBox").on("click", function(){
       lastMove = "X"
     }  
 })
+
+var result = $.grep(winningCombo, function (e){
+  return e.id == id;
+});
+
+
 
 
 })

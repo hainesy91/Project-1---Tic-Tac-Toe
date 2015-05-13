@@ -15,4 +15,5 @@ button {
 .gridBox {
   height: 140px;
   width: 140px;
+  vertical-align: top;
 }
