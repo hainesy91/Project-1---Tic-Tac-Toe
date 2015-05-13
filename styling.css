@@ -17,3 +17,7 @@ button {
   width: 140px;
   vertical-align: top;
 }
+
+button {
+  text-align: center;
+}
