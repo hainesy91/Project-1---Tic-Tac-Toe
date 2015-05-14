@@ -8,7 +8,7 @@ var oMoves = []
 
 $(".gridBox").on("click", function(){
   if(lastMove === "X") {
-    $(this).text("O");
+    $(this).css("background-image", "url(pictures/mario.png)");
     lastMove = "O"
     var id = $(this).attr('id')
     oMoves.push(Number(id))
@@ -17,6 +17,7 @@ $(".gridBox").on("click", function(){
   }
    else{
       $(this).text("X")
+      $(this).css("background-image", "url(pictures/DKNESDonkeyKongSprite.png)");
       lastMove = "X"
       var id = $(this).attr('id')
       xMoves.push(Number(id))
@@ -56,7 +57,7 @@ function checkForWinner(playerArray){
     for(j = 0; j < orderedArray.length; j++){
       if(orderedArray[j] === winningCombo[i][0]){
         if(winningCombo[i][1] === orderedArray[j+1] && winningCombo[i][2] === orderedArray[j+2]){
-          $('div.Winner').text(lastMove + ' ' + "is the winner!");
+          $('div.Winner').text(lastMove + ' ' + "is the winner!" + "");
             }
         }
     }
