@@ -66,17 +66,6 @@ function checkForWinner(playerArray){
   }   
   }
 
-  // function Restart(){
-  //   console.log("restart function click")
-  //   $('.resetButton').text('');
-  //   $('.Winner').text('');
-  //   xMoves = [];
-  //   oMoves = [];
-  // }
-
-
-
-
 })
 
 
