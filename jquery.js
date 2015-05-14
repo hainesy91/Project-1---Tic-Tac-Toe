@@ -12,36 +12,80 @@ $(".gridBox").on("click", function(){
     lastMove = "O"
     var id = $(this).attr('id')
     oMoves.push(Number(id))
-    console.log(oMoves)
     checkForWinner(oMoves);
+    $(this).unbind();
   }
    else{
       $(this).text("X")
       lastMove = "X"
       var id = $(this).attr('id')
       xMoves.push(Number(id))
-      console.log(xMoves)
       checkForWinner(xMoves);
+      $(this).unbind();
     }  
 })
 
-function checkForWinner(playerArray){
+$("#Reset").on("click", function(){
+    $('.Winner').text('');
+    $(".gridBox").text("");
+    xMoves = [];
+    oMoves = [];
+    $(".gridBox").on("click", function(){
+  if(lastMove === "X") {
+    $(this).text("O");
+    lastMove = "O"
+    var id = $(this).attr('id')
+    oMoves.push(Number(id))
+    checkForWinner(oMoves);
+    $(this).unbind();
+  }
+   else{
+      $(this).text("X")
+      lastMove = "X"
+      var id = $(this).attr('id')
+      xMoves.push(Number(id))
+      checkForWinner(xMoves);
+      $(this).unbind();
+    }  
+})
+});
+
+function checkForWinner(playerArray){ 
   var orderedArray = playerArray.sort()
-  console.log(orderedArray[0])
-  for(i = 0; i < winningCombo.length -1; i++){
-    for(j = 0; j < orderedArray.length -1; j++){
+  for(i = 0; i < winningCombo.length; i++){
+    for(j = 0; j < orderedArray.length; j++){
       if(orderedArray[j] === winningCombo[i][0]){
         if(winningCombo[i][1] === orderedArray[j+1] && winningCombo[i][2] === orderedArray[j+2]){
           $('div.Winner').text(lastMove + ' ' + "is the winner!");
-            
-          }
+            }
         }
-        // console.log(winningCombo[i])
-        
     }
-  }    //console.log(winningCombo[i])
-    //}
-
+  }
+  if(playerArray.length === 5){
+    $('div.Winner').text("It's a draw!");
+  }   
   }
 
+  // function Restart(){
+  //   console.log("restart function click")
+  //   $('.resetButton').text('');
+  //   $('.Winner').text('');
+  //   xMoves = [];
+  //   oMoves = [];
+  // }
+
+
+
+
 })
+
+
+
+
+
+
+
+
+
+
+
