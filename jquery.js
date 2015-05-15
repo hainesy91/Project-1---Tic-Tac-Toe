@@ -6,14 +6,14 @@ var xMoves = []
 var oMoves = []
 
 
-$(".gridBox").on("click", function(){
+$(".gridBox").one("click", function(){
   if(lastMove === "X") {
     $(this).css("background-image", "url(pictures/mario.png)");
     lastMove = "O"
     var id = $(this).attr('id')
     oMoves.push(Number(id))
     checkForWinner(oMoves);
-    $(this).unbind();
+    // $(this).unbind();
   }
    else{
       $(this).css("background-image", "url(pictures/DKNESDonkeyKongSprite.png)");
@@ -21,30 +21,33 @@ $(".gridBox").on("click", function(){
       var id = $(this).attr('id')
       xMoves.push(Number(id))
       checkForWinner(xMoves);
-      $(this).unbind();
+      // $(this).unbind();
     }  
 })
 
-$("#Reset").on("click", function(){
+$("#Reset").one("click", function(){
     $('.Winner').text('');
     xMoves = [];
     oMoves = [];
+    lastMove = "";
     $('.gridBox').css('background-image', 'none')
-    if(lastMove === "X") {
-    lastMove = "O"
-    var id = $(this).attr('id')
-    oMoves.push(Number(id))
-    checkForWinner(oMoves);
-    $(this).unbind();
-  }
-   else{
-      lastMove = "X"
-      $('.gridBox').css('background-image', 'none')
-      var id = $(this).attr('id')
-      xMoves.push(Number(id))
-      checkForWinner(xMoves);
-      $(this).unbind();
+    $(".gridBox").one("click", function(){
+      if(lastMove === "X") {
+        $(this).css("background-image", "url(pictures/mario.png)");
+        lastMove = "O"
+        var id = $(this).attr('id')
+        oMoves.push(Number(id))
+        checkForWinner(oMoves);
+        // $(this).unbind();
+      } else {
+        $(this).css("background-image", "url(pictures/DKNESDonkeyKongSprite.png)");
+        lastMove = "X"
+        var id = $(this).attr('id')
+        xMoves.push(Number(id))
+        checkForWinner(xMoves);
+      // $(this).unbind();
     }  
+})
 });
 
 
