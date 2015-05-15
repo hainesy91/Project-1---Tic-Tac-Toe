@@ -16,7 +16,6 @@ $(".gridBox").on("click", function(){
     $(this).unbind();
   }
    else{
-      $(this).text("X")
       $(this).css("background-image", "url(pictures/DKNESDonkeyKongSprite.png)");
       lastMove = "X"
       var id = $(this).attr('id')
@@ -28,12 +27,10 @@ $(".gridBox").on("click", function(){
 
 $("#Reset").on("click", function(){
     $('.Winner').text('');
-    $(".gridBox").text("");
     xMoves = [];
     oMoves = [];
-    $(".gridBox").on("click", function(){
-  if(lastMove === "X") {
-    $(this).text("O");
+    $('.gridBox').css('background-image', 'none')
+    if(lastMove === "X") {
     lastMove = "O"
     var id = $(this).attr('id')
     oMoves.push(Number(id))
@@ -41,15 +38,15 @@ $("#Reset").on("click", function(){
     $(this).unbind();
   }
    else{
-      $(this).text("X")
       lastMove = "X"
+      $('.gridBox').css('background-image', 'none')
       var id = $(this).attr('id')
       xMoves.push(Number(id))
       checkForWinner(xMoves);
       $(this).unbind();
     }  
-})
 });
+
 
 function checkForWinner(playerArray){ 
   var orderedArray = playerArray.sort()
@@ -57,7 +54,7 @@ function checkForWinner(playerArray){
     for(j = 0; j < orderedArray.length; j++){
       if(orderedArray[j] === winningCombo[i][0]){
         if(winningCombo[i][1] === orderedArray[j+1] && winningCombo[i][2] === orderedArray[j+2]){
-          $('div.Winner').text(lastMove + ' ' + "is the winner!" + "");
+          $('div.Winner').text(lastMove + ' ' + "is the Winner!");
             }
         }
     }

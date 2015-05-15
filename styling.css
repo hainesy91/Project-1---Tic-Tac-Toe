@@ -75,7 +75,20 @@ button {
         transform: translateX(0); 
     } 
 }
+.Winner {
+  color: white;
+  font-family: helvetica;
+  font-size: 20px;
+}
 
-.Reset {
+.resetButton {
+  padding: 10px;
+}
 
+#Reset {
+  padding: 10px;
+  font-family: helvetica;
+  color: yellow;
+  background-color: blue;
+  font-size: 14px;
 }
